@@ -7,7 +7,7 @@ public class EinerUeberlauf extends Exception{
 	}
 	
 	public EinerUeberlauf(String s){
-		super();
+		super(s);
 	}
 
 }
