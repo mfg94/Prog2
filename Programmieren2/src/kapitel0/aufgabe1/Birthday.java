@@ -12,6 +12,8 @@ public class Birthday {
 		} catch (InvalidBirthdayException e) {
 			throw new InvalidBirthdayException();
 		}
+		theDay = s;
+
 	}
 
 	public void checkDay(String s) throws InvalidBirthdayException {
