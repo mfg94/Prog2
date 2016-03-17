@@ -1,18 +1,18 @@
 package kapitel0.aufgabe2;
 
 import java.util.*;
+
 /**
- * @class Das folgende Programm liest von der Console die Angestelltennummer, den Stundenlohn und die 
- * wöchentliche Arbeitszeit ein. Anschliessend wird der Name, wöchentliche Verdienst sowie die Überstunden
- * ausgegeben.
+ * @class Das folgende Programm liest von der Console die Angestelltennummer,
+ *        den Stundenlohn und die wöchentliche Arbeitszeit ein. Anschliessend
+ *        wird der Name, wöchentliche Verdienst sowie die Überstunden
+ *        ausgegeben.
  */
 
 public class EmployeeSalary {
-	
-	
 
 	public static void main(String[] args) {
-		Scanner scnr = new Scanner(System.in);
+		try(Scanner scnr = new Scanner(System.in)){
 		long employeeNumber = 0;
 		String employeeName;
 		double hourlySalary = 0.00;
@@ -21,7 +21,12 @@ public class EmployeeSalary {
 		double regularPay, overtimePay, netPay;
 
 		System.out.print("Enter Employee Number (00000): ");
-		employeeNumber = scnr.nextLong();
+
+		try {
+			employeeNumber = scnr.nextLong();
+		} catch (InputMismatchException e) {
+			System.out.println("Falsche Eingabe!");
+		}
 
 		if (employeeNumber == 82500)
 			employeeName = "Peter Baker";
@@ -35,7 +40,12 @@ public class EmployeeSalary {
 			employeeName = "Unknown";
 
 		System.out.print("Enter Hourly Salary: ");
-		hourlySalary = scnr.nextDouble();
+
+		try {
+			hourlySalary = scnr.nextDouble();
+		} catch (InputMismatchException e) {
+			System.err.println("Falsche Eingabe!");
+		}
 
 		System.out.print("Enter Weekly Time: ");
 		weeklyTime = scnr.nextDouble();
@@ -67,4 +77,5 @@ public class EmployeeSalary {
 		System.out.println("======================");
 	}
 
+}
 }
