@@ -2,11 +2,11 @@ package kapitel1.aufgabe2;
 
 public class Karte {
 
-	enum Farbe {
+	static enum Farbe {
 		KREUZ, PIK, HERZ, KARO
 	};
 
-	enum Wert {
+	static enum Wert {
 		SIEBEN, ACHT, NEUN, ZEHN, BAUER, DAME, KOENIG, ASS
 	};
 
@@ -17,6 +17,7 @@ public class Karte {
 
 		this.f = f;
 		this.w = w;
+		
 
 	}
 	

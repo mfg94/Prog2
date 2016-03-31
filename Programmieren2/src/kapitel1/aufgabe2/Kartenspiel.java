@@ -6,6 +6,13 @@ public class Kartenspiel {
 
 	public Kartenspiel(int n) {
 		deck = new Karte[n];
-
+		
+		
+		for(int i=0; i++;  i<n){
+		int rndF=Math.random()*Karte.Farbe.values().length();
+		}
+		
+		deck = new Karte[n];
+		
 	}
 }
