@@ -22,12 +22,19 @@ public class EmployeeSalary {
 
 		System.out.print("Enter Employee Number (00000): ");
 
+		
+		while(true){
 		try {
 			employeeNumber = scnr.nextLong();
+			break;
 		} catch (InputMismatchException e) {
 			System.out.println("Falsche Eingabe!");
+			continue;
+		}
 		}
 
+		//Wie kann man das Scannner Objekt leeren?
+		
 		if (employeeNumber == 82500)
 			employeeName = "Peter Baker";
 		else if (employeeNumber == 92746)
