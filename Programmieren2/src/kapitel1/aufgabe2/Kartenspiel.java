@@ -1,10 +1,14 @@
 package kapitel1.aufgabe2;
 
-import java.util.Random;
+import java.util.Arrays;
 
 public class Kartenspiel {
 
 	Karte[] deck;
+
+	public Karte[] getDeck() {
+		return deck;
+	}
 
 	public Kartenspiel(int n) {
 		deck = new Karte[n];
@@ -45,10 +49,17 @@ public class Kartenspiel {
 
 	}
 
-	public void sort(){
-		
+	public void sort() {
+		Arrays.sort(deck);
 	}
-	
+
+	public void kartenspielHinzufuegen(Kartenspiel neu) {
+		Karte[] tmp = this.deck;
+		this.deck = new Karte[(tmp.length + neu.getDeck().length)];
+
+		System.arraycopy(tmp, 0, this.deck, 0, tmp.length);
+		System.arraycopy(neu.getDeck(), 0, this.deck, tmp.length, neu.deck.length);
+
 	}
-	
+
 }
