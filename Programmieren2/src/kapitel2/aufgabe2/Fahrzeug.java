@@ -92,8 +92,8 @@ public abstract class Fahrzeug {
 	
 
 	public String toString() {
-		return "Auto: " + name + " Hoechstgeschwindigkeit: " + hoechstGeschwindigkeit + " km/h Geschwindigkeit: "
-				+ geschwindigkeit + " km/h Position: " + position + " km";
+		return name + ". Hoechstgeschwindigkeit: " + hoechstGeschwindigkeit + " km/h. Aktuelle Geschwindigkeit: "
+				+ geschwindigkeit + " km/h. Aktuelle Position: " + position + " km.";
 	}
 
 }
