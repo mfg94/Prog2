@@ -12,12 +12,12 @@ public class Pkw extends Fahrzeug {
 		double anhalteweg = (0.5 * Math.pow((kmhInMs(this.geschwindigkeit) / 10), 2))
 				+ ((kmhInMs(this.geschwindigkeit) / 10) * 3);
 		this.position += (anhalteweg / 1000);
-		this.geschwindigkeit=0;
+		this.geschwindigkeit = 0;
 		return anhalteweg;
 
 	}
-	
-	public String toString(){
+
+	public String toString() {
 		return "Auto: " + super.toString();
 	}
 

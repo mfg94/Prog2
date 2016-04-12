@@ -56,7 +56,7 @@ public class Lkw extends Fahrzeug {
 	}
 
 	public String toString() {
-		return "LKW: " + super.toString() + " Beladung: " + this.ladung + " Tonnen.  Max.Ladung: " + this.maxLadung + " Tonnen.";
+		return "LKW: " + super.toString() + " Beladung: " + this.ladung + " Tonnen.  Max.Ladung: " + this.maxLadung + " Tonnen.\n";
 	}
 
 }
