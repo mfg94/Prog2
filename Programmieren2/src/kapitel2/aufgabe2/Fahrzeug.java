@@ -6,11 +6,13 @@ public abstract class Fahrzeug {
 	protected final String name;
 
 	// Höchstgeschwindigkeit und Beschleunigung sind Konstanten für jede Child-Klasse
-	protected double hoechstGeschwindigkeit;
-	protected double beschleunigung;
+	protected final double hoechstGeschwindigkeit;
+	protected final double beschleunigung;
 
 	// Konstruktor
-	public Fahrzeug(String name) {
+	public Fahrzeug(String name, double hoechstGeschwindigkeit, double beschleunigung) {
+		this.hoechstGeschwindigkeit = hoechstGeschwindigkeit;
+		this.beschleunigung = beschleunigung;
 		this.name = name;
 	}
 

@@ -6,9 +6,7 @@ public class Lkw extends Fahrzeug {
 	protected double maxLadung;
 
 	public Lkw(String name, double maxLadung) {
-		super(name);
-		this.hoechstGeschwindigkeit = 105; // kmh
-		this.beschleunigung = 0.5; // m/s^2
+		super(name, 105.0, 0.5);
 		this.maxLadung = maxLadung;
 		this.ladung = 0;
 	}

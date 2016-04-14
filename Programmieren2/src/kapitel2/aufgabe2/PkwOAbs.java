@@ -2,9 +2,10 @@ package kapitel2.aufgabe2;
 
 public class PkwOAbs extends Pkw {
 
+	static final double hoechst=140.0;
+	
 	public PkwOAbs(String name) {
-		super(name);
-		this.hoechstGeschwindigkeit = 140;
+		super(name, 1);
 	}
 
 	public double stoppen() {

@@ -1,11 +1,14 @@
 package kapitel2.aufgabe2;
 
 public class Pkw extends Fahrzeug {
-
-	public Pkw(String name) {
-		super(name);
-		this.hoechstGeschwindigkeit = 160;
-		this.beschleunigung = 2.0;
+	
+	public Pkw(String name, int n) {
+		super(name, 140.0, 2.0);
+		}
+	
+	public Pkw(String name){
+		super(name,160.0,2.0);
+		
 	}
 
 	public double stoppen() {
