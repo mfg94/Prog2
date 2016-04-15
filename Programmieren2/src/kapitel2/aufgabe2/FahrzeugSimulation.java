@@ -9,6 +9,7 @@ public class FahrzeugSimulation {
 		Pkw auto1 = new Pkw("VW Golf");
 		PkwOAbs auto2 = new PkwOAbs("Trabbi");
 		Pkw auto3 = new Pkw("BMW");
+		
 
 		auto1.beschleunigen(60);
 		auto2.beschleunigen(15);

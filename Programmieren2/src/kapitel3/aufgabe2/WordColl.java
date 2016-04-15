@@ -45,54 +45,64 @@ public class WordColl {
 				words.addElement(st[i].nextToken());
 		}
 	}
+	
+	boolean isEmpty(){
+		if(size()==count(null))
+			return true;
+		else
+			return false;
+		
+		
+	}
 
 	String top() {
+		
+		assert((isEmpty()));
+		
+		
+		int max[]={0,0};
 
-		int[] w = new int[words.size()];
-
-		for (int i = 0; i < words.size(); i++) {
-			w[i] = count(words.elementAt(i));
-		}
-
-		int max[] = { 0, 0 };
-
-		for (int i = 0; i < w.length; i++) {
-			if (w[i] > max[0]) {
-				max[0] = w[i];
-				max[1] = i;
+		for (String str : words) {
+			if(count(str)>max[0]){
+				max[0]=count(str);
+				max[1]=words.indexOf(str);
 			}
 		}
-
+		
 		return words.elementAt(max[1]);
 
 	}
 
 	public String toString() {
-		Vector<String> temp = words;
-		Vector<Integer> anz = new Vector();
+		
+		assert(words.size()>0);
+		
+		Vector<String> temp= new Vector<String>();
+		
+		
+		for(String str: words){
+			if(count(str)>1 && temp.contains(str)){}
+			else
+			{
+				temp.add(str);
+			}
+		}
+		
 		
 		String ausgabe = "Word\t\t\t| count\t\t\t";
 		ausgabe += "\n-----------------------------------------";
 		
 		
 		
-		for (String str : words){
-			temp.addElement(str);
-			anz.addElement(new Integer(count(str)));
-		}
-		
-		temp.
-		
-		for(int i){
 			
-		}
-			
-			
-			
+		for(String str : temp)
 			ausgabe += "\n" + str + "\t\t\t| " + count(str);
+		
+		ausgabe += "\n-----------------------------------------";
+		ausgabe += "\nTotal: "+words.size();
 
 		return ausgabe;
 
-	}
+		}
 
 }
