@@ -18,8 +18,8 @@ public class Ort<E> {
 	void hinzufuegen(E e) {
 		if (this.e == null)
 			this.e = e;
-		
-
+		else
+			System.err.println("Belegt!");
 	}
 
 	E getEingelagertesElement() {
@@ -27,10 +27,10 @@ public class Ort<E> {
 	}
 
 	boolean istBelegt() {
-		if (e != null)
-			return true;
-		else
+		if (e == null)
 			return false;
+		else
+			return true;
 	}
 
 	int getOrtsId() {
