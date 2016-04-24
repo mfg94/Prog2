@@ -4,7 +4,7 @@ public class WordCollTest {
 
 	public static void main (String[] args){
 		
-		String[] sentences = {""};
+		String[] sentences = {"asdlköfj, asdpifipo adsöfipeij adölkf poiadsf öklasdf"};
 		
 		WordColl wColl = new WordColl(sentences);
 		System.out.println(wColl.count("Mann"));

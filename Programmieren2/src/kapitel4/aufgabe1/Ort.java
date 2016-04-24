@@ -9,31 +9,31 @@ public class Ort<E> {
 		e = null;
 	}
 
-	E entnehmen() {
+	public E entnehmen() {
 		E temp = e;
 		e = null;
 		return temp;
 	}
 
-	void hinzufuegen(E e) {
+	public void hinzufuegen(E e) {
 		if (this.e == null)
 			this.e = e;
 		else
 			System.err.println("Belegt!");
 	}
 
-	E getEingelagertesElement() {
+	public E getEingelagertesElement() {
 		return e;
 	}
 
-	boolean istBelegt() {
+	public boolean istBelegt() {
 		if (e == null)
 			return false;
 		else
 			return true;
 	}
 
-	int getOrtsId() {
+	public int getOrtsId() {
 		return ortsId;
 	}
 
