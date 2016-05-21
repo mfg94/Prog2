@@ -2,7 +2,7 @@ package kapitel5.aufgabe1;
 
 
 public class Buch implements Comparable<Buch>{
-	private final String autor;
+	private String autor;
 	private final String isbn;
 	private final String titel;
 
@@ -23,6 +23,10 @@ public class Buch implements Comparable<Buch>{
 
 	public String getAutor() {
 		return autor;
+	}
+	
+	public void setAutor(String autor) {
+		this.autor = autor;
 	}
 	
 	
