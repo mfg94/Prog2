@@ -4,11 +4,6 @@ import java.util.Comparator;
 
 
 
-public interface Something {
-
-    int calc(double d, int f);
-
-}
 
 public class PersonTest {
 	public static void main(String... args) {
@@ -16,12 +11,15 @@ public class PersonTest {
 				new Person("Michael", "Neward", 19), new Person("Matthew", "Neward", 13),
 				new Person("Adam", "Pfeiffer", 43) };
 		
+		System.out.println(Arrays.toString(people));
 		
-		Arrays.sort(people, Comparator.comparing(keyExtractor));
+		//Arrays.sort(people,(s1,s2) -> s1.getFirstName().compareTo(s2.getFirstName()));
+		Arrays.sort(people,Comparator.comparing(Person::getFirstName));
 		
-		System.out.println(people);
 		
-
+		
+		System.out.println(Arrays.toString(people));
+		
 		
 	}
 	

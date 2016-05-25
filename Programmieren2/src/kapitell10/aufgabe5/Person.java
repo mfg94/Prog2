@@ -2,7 +2,7 @@ package kapitell10.aufgabe5;
 import java.util.Comparator;
 import java.util.*;
 
-class Person implements Comparable<Person> {
+class Person {
 	private final String firstName;
 	private String lastName;
 	private final int age;
@@ -17,11 +17,9 @@ class Person implements Comparable<Person> {
 		return "Person [firstName=" + firstName + ", lastName=" + lastName + ", age=" + age + "]";
 	}
 	
-	public int  compareTo(Person p){
-		
-		Function compareByFirstname = (Person p, Person q) -> p.
-		
-		
+	public String getFirstName(){
+		return firstName;
 	}
+
 	
 }
