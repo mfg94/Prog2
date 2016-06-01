@@ -1,6 +1,7 @@
 package kapitell10.aufgabe6;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class Bibliothek {
 
@@ -16,21 +17,23 @@ public class Bibliothek {
 	}
 
 	public Collection<Buch> sucheNachAutor(String autor) {
-		ArrayList<Buch> searchedBooks = buecher;
 
-		buecher.stream().filter(p -> p.getAutor().equals(autor)).
-		
-		return searchedBooks;
-	
+		return buecher.stream().filter(b -> b.getAutor().equals(autor))
+				.collect(Collectors.toList());
+
 	}
 
 	public Buch sucheNachISBN(String isbn) {
-		for (Buch b : buecher) {
-			if (b.getIsbn().equals(isbn))
-				return b;
-		}
 
-		return null;
+		return buecher.stream().filter(p -> p.getIsbn().equals(isbn))
+				.findFirst().orElse(null);
+
+	}
+
+	public Map<String, List<Buch>> bestandNachAutorAuflisten() {
+
+		return buecher.stream()
+				.collect(Collectors.groupingBy((Buch b) -> b.getAutor()));
 
 	}
 
@@ -61,8 +64,6 @@ public class Bibliothek {
 		return bestandNachAutor;
 
 	}
-	
-
 
 	public String toString() {
 		String ausgabe = new String();

@@ -20,7 +20,14 @@ public class BibliothekTest {
 		
 		Bibliothek test = new Bibliothek(a,b,c,d,e,f,g,h,i,j,k);
 		
-		System.out.println(test.sucheNachAutor("Harvey Deitel"));
+		System.out.println(test.sucheNachAutor("Bertrand Meyer"));
+		System.out.println(test.sucheNachISBN("9783642018558"));
+		
+		System.out.println(test.bestandNachAutor());
+		System.out.println(test.bestandNachAutorAuflisten());
+		
+		
+		
 	}
 
 }

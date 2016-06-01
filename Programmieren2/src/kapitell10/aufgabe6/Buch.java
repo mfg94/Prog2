@@ -12,6 +12,11 @@ public class Buch implements Comparable<Buch>{
 		this.titel = titel;
 
 	}
+	
+	public Buch () {
+		this.autor = "";
+		this.isbn = "";
+		this.titel = "";	}
 
 	public String getTitel() {
 		return titel;

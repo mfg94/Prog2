@@ -1,5 +1,6 @@
 package kapitel6.aufgabe1;
 
+import java.awt.Container;
 import java.awt.FlowLayout;
 
 import javax.swing.BoxLayout;
@@ -14,14 +15,18 @@ public class SchneemannGrid {
 		
 		wnd.setSize(500, 800);
 		wnd.setLocation(100, 100);
-
-		wnd.setLayout(new FlowLayout());
+		
+		Container c = wnd.getContentPane();
+		
+		
 		
 		Schneemann schneemann = new Schneemann();
 		Grid grid = new Grid ();
+
 		
-		wnd.add(schneemann);
-		wnd.add(grid);
+		c.add(grid);
+		c.add(schneemann);
+		
 		wnd.setVisible(true);
 		
 		
