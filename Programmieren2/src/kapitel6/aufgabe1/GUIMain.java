@@ -27,10 +27,8 @@ public class GUIMain {
 		// Panels in den Container
 		// Reihenfolge beachten
 		
-		c.add(triangle);
-		
-		c.add(grid);
-		
+		c.add(triangle);		
+		c.add(grid);		
 		c.add(sm);
 		
 	
