@@ -20,6 +20,11 @@ public class GUIMain {
 				
 				c.setVisible(true);
 				
+				Schachbrett sb = new Schachbrett();
+				
+				
+				c.add(sb);
+				
 				// Hauptfenster Geometrie setzen
 				wnd.setSize(700, 900);
 				wnd.setLocation(100, 100);
