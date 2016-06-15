@@ -22,7 +22,7 @@ public class DigitalClock extends JPanel {
 		
 		g.setFont(new Font("Coruier New",Font.BOLD,24));
 		g.setColor(Color.RED);
-		g.drawString(now.toString(), 20,80);
+		g.drawString(now.toString() , 20,80);
 
 	}
 
