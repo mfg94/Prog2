@@ -12,47 +12,44 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
-public class GUIMain extends JFrame implements ActionListener {
+public class GUIMain extends JFrame {
 
-	JPanel panel;
+	JPanel buttonPanel;
 	JButton start;
 	JButton stop;
 	JButton reset;
-	
+	Container c;
 
-	Stoppuhr timer;
+	StopWatch timer;
 
 	public GUIMain() {
 		this.setTitle("Stoppuhr");
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-		this.setSize(600, 200);
+		this.setLayout(new BorderLayout(10, 10));
+		this.setSize(300, 150);
 
-		panel = new JPanel();
-		panel.setLayout(null);
-
-		timer = new Stoppuhr();
+		buttonPanel = new JPanel();
+		timer = new StopWatch();
 
 		start = new JButton("Start");
-		start.setBounds(0, 50, 100, 50);
-		start.addActionListener(this);
+		start.addActionListener(new CommandStart());
 
 		stop = new JButton("Stop");
-		stop.setBounds(100, 50, 100, 50);
-		stop.addActionListener(this);
+		stop.addActionListener(new CommandStop());
 		stop.setEnabled(false);
-		
+
 		reset = new JButton("Reset");
-		reset.setBounds(200,50,100,50);
-		reset.addActionListener(this);
+		reset.addActionListener(new CommandReset());
 		reset.setEnabled(false);
 
-		panel.add(timer);
-		panel.add(start);
-		panel.add(stop);
-		panel.add(reset);
+		buttonPanel.add(start);
+		buttonPanel.add(stop);
+		buttonPanel.add(reset);
 
-		this.add(panel);
-		panel.setVisible(true);
+		this.add(timer, BorderLayout.CENTER);
+		this.add(buttonPanel, BorderLayout.SOUTH);
+
+		buttonPanel.setVisible(true);
 
 	}
 
@@ -63,24 +60,30 @@ public class GUIMain extends JFrame implements ActionListener {
 
 	}
 
-	public void actionPerformed(ActionEvent e) {
-		if (e.getSource() == start) {
+	public class CommandStart implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
 			timer.count();
 			start.setEnabled(false);
 			reset.setEnabled(true);
 			stop.setEnabled(true);
-		} else if (e.getSource() == stop) {
+		}
+	}
+
+	public class CommandStop implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
 			timer.stop();
 			start.setEnabled(true);
 			stop.setEnabled(false);
-		} else if(e.getSource()==reset){
+		}
+	}
+
+	public class CommandReset implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
 			timer.reset();
 			reset.setEnabled(false);
 			stop.setEnabled(false);
 			start.setEnabled(true);
-			
 		}
-		
 	}
 
 }
