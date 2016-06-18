@@ -1,4 +1,4 @@
-package kapitel8;
+package kapitel8.aufgabe1;
 
 import javax.swing.Timer;
 import javax.swing.border.LineBorder;

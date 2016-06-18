@@ -1,4 +1,4 @@
-package kapitel8;
+package kapitel8.aufgabe1;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
