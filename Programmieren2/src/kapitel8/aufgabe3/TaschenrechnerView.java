@@ -3,13 +3,17 @@ package kapitel8.aufgabe3;
 import java.awt.BorderLayout;
 import java.awt.TextArea;
 import java.awt.TextField;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.EventListener;
 
 import javax.swing.*;
 
 public class TaschenrechnerView extends JFrame {
 	private TextField iO;
 	private InputButtons iP;
-	
+
+	private Taschenrechner tr;
 
 	public static void main(String[] args) {
 		TaschenrechnerView gui = new TaschenrechnerView();
@@ -25,17 +29,15 @@ public class TaschenrechnerView extends JFrame {
 		setResizable(false);
 		setLayout(new BorderLayout());
 
+		tr = new Taschenrechner();
 		iO = new TextField();
-		iP = new InputButtons();
-		
+		iP = new InputButtons(tr);
+
 		iO.setEditable(false);
-		
-		JButton test = new JButton("TEst");
-		JButton test2 = new JButton("TEst2");
 
 		add(iO, BorderLayout.NORTH);
 		add(iP);
-		
+
 		iP.setVisible(true);
 
 	}

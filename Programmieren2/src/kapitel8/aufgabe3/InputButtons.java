@@ -23,7 +23,9 @@ public class InputButtons extends JPanel {
 	final JButton minus = new JButton("-");
 	final JButton plus = new JButton("+");
 
-	public InputButtons() {
+	Taschenrechner tr;
+
+	public InputButtons(Taschenrechner tr) {
 		setLayout(new GridLayout(4, 4, 2, 2));
 
 		add(seven);
@@ -45,6 +47,8 @@ public class InputButtons extends JPanel {
 		add(dot);
 		add(equals);
 		add(plus);
+
+		this.tr = tr;
 
 	}
 
