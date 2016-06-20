@@ -40,23 +40,23 @@ public class StopWatch extends JPanel implements ActionListener {
 	}
 
 	public void count() {
-		this.t.start();
+		t.start();
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
-		this.seconds += 0.1;
-		this.repaint();
+		seconds += 0.1;
+		repaint();
 	}
 
 	public void stop() {
-		this.t.stop();
+		t.stop();
 	}
 
 	public void reset() {
-		this.seconds = 0;
-		this.stop();
-		this.repaint();
+		seconds = 0;
+		stop();
+		repaint();
 	}
 
 }
