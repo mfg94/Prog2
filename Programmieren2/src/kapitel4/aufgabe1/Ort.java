@@ -1,12 +1,16 @@
 package kapitel4.aufgabe1;
 
+import java.util.ArrayList;
+
 public class Ort<E> {
 	final int ortsId;
+	ArrayList<E> test;
 	E e;
 
 	public Ort(int ortsId) {
 		this.ortsId = ortsId;
 		e = null;
+		test = new ArrayList<E>();
 	}
 
 	public E entnehmen() {

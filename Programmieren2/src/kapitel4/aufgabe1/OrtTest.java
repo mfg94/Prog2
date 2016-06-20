@@ -4,6 +4,7 @@ public class OrtTest {
 
 	public static void main(String[] args) {
 		Ort<String> einOrt = new Ort<String>(1);
+		
 		einOrt.hinzufuegen("18");
 
 		String s = einOrt.getEingelagertesElement();

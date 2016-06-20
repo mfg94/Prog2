@@ -1,9 +1,11 @@
-package kapitel8.aufgabe1;
+package kapitel8.aufgabe2;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.FlowLayout;
+import java.awt.Font;
+import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Observable;
@@ -11,27 +13,36 @@ import java.util.Observer;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.Timer;
+import javax.swing.border.LineBorder;
+import javax.swing.border.TitledBorder;
 
-public class GUIMain extends JFrame implements Observer{
+public class GUIMain extends JFrame implements Observer {
 
 	JPanel buttonPanel;
+	JPanel timerPanel;
 	JButton start;
 	JButton stop;
 	JButton reset;
-	Container c;
+	JLabel string;
 
-	StopWatch timer;
+	final TitledBorder border = new TitledBorder(new LineBorder(Color.BLUE, 1), "Display");
+
+	StopWatch stopWatch;
 
 	public GUIMain() {
-		this.setTitle("Stoppuhr");
-		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-		this.setLayout(new BorderLayout(10, 10));
-		this.setSize(300, 150);
+		setTitle("Stoppuhr");
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setLayout(new BorderLayout(10, 10));
+		setSize(300, 150);
 
 		buttonPanel = new JPanel();
-		timer = new StopWatch();
+		stopWatch = new StopWatch();
+		string = new JLabel(stopWatch.toString());
+
+		createTimerPanel();
 
 		start = new JButton("Start");
 		start.addActionListener(new CommandStart());
@@ -48,10 +59,23 @@ public class GUIMain extends JFrame implements Observer{
 		buttonPanel.add(stop);
 		buttonPanel.add(reset);
 
-		this.add(timer, BorderLayout.CENTER);
-		this.add(buttonPanel, BorderLayout.SOUTH);
+		add(timerPanel, BorderLayout.CENTER);
+		add(buttonPanel, BorderLayout.SOUTH);
+		
+		stopWatch.addObserver(this);
 
-		buttonPanel.setVisible(true);
+	}
+
+	public void createTimerPanel() {
+		timerPanel = new JPanel();
+		timerPanel.setOpaque(false);
+		timerPanel.setBorder(border);
+		border.setTitleColor(Color.BLUE);
+
+		string.setFont(new Font("Courier New", Font.BOLD, 24));
+		string.setForeground(Color.BLUE);
+
+		timerPanel.add(string);
 
 	}
 
@@ -64,7 +88,7 @@ public class GUIMain extends JFrame implements Observer{
 
 	public class CommandStart implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
-			timer.count();
+			stopWatch.start();
 			start.setEnabled(false);
 			reset.setEnabled(true);
 			stop.setEnabled(true);
@@ -73,7 +97,7 @@ public class GUIMain extends JFrame implements Observer{
 
 	public class CommandStop implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
-			timer.stop();
+			stopWatch.stop();
 			start.setEnabled(true);
 			stop.setEnabled(false);
 		}
@@ -81,7 +105,8 @@ public class GUIMain extends JFrame implements Observer{
 
 	public class CommandReset implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
-			timer.reset();
+			stopWatch.reset();
+			stopWatch.stop();
 			reset.setEnabled(false);
 			stop.setEnabled(false);
 			start.setEnabled(true);
@@ -90,9 +115,8 @@ public class GUIMain extends JFrame implements Observer{
 
 	@Override
 	public void update(Observable arg0, Object arg1) {
-		// TODO Auto-generated method stub
-		
-		
+		string.setText(stopWatch.toString());
+		string.repaint();
 	}
 
 }
