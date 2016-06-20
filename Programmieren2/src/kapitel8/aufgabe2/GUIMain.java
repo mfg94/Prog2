@@ -26,7 +26,11 @@ public class GUIMain extends JFrame implements Observer {
 	JButton start;
 	JButton stop;
 	JButton reset;
+	JButton newWindow;
 	JLabel string;
+	
+	int x=300;
+	int y=150;
 
 	final TitledBorder border = new TitledBorder(new LineBorder(Color.BLUE, 1), "Display");
 
@@ -54,10 +58,14 @@ public class GUIMain extends JFrame implements Observer {
 		reset = new JButton("Reset");
 		reset.addActionListener(new CommandReset());
 		reset.setEnabled(false);
+		
+		newWindow = new JButton("New");
+		newWindow.addActionListener(new NewWindow());
 
 		buttonPanel.add(start);
 		buttonPanel.add(stop);
 		buttonPanel.add(reset);
+		buttonPanel.add(newWindow);
 
 		add(timerPanel, BorderLayout.CENTER);
 		add(buttonPanel, BorderLayout.SOUTH);
@@ -110,6 +118,21 @@ public class GUIMain extends JFrame implements Observer {
 			reset.setEnabled(false);
 			stop.setEnabled(false);
 			start.setEnabled(true);
+		}
+	}
+	
+	public class NewWindow implements ActionListener{
+		public void actionPerformed(ActionEvent e){
+			TestFrame tf = new TestFrame(stopWatch,x,y);
+			tf.setVisible(true);
+			if(x>=1200){
+				x=0;
+				y+=150;
+			}
+			x+=300;
+			
+			
+			
 		}
 	}
 
