@@ -2,20 +2,15 @@ package kapitel8.aufgabe2;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Container;
-import java.awt.FlowLayout;
 import java.awt.Font;
-import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Observable;
 import java.util.Observer;
-
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.Timer;
 import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
 
@@ -28,9 +23,9 @@ public class GUIMain extends JFrame implements Observer {
 	JButton reset;
 	JButton newWindow;
 	JLabel string;
-	
-	int x=300;
-	int y=150;
+
+	int x = 0;
+	int y = 0;
 
 	final TitledBorder border = new TitledBorder(new LineBorder(Color.BLUE, 1), "Display");
 
@@ -58,7 +53,7 @@ public class GUIMain extends JFrame implements Observer {
 		reset = new JButton("Reset");
 		reset.addActionListener(new CommandReset());
 		reset.setEnabled(false);
-		
+
 		newWindow = new JButton("New");
 		newWindow.addActionListener(new NewWindow());
 
@@ -69,7 +64,7 @@ public class GUIMain extends JFrame implements Observer {
 
 		add(timerPanel, BorderLayout.CENTER);
 		add(buttonPanel, BorderLayout.SOUTH);
-		
+
 		stopWatch.addObserver(this);
 
 	}
@@ -120,19 +115,17 @@ public class GUIMain extends JFrame implements Observer {
 			start.setEnabled(true);
 		}
 	}
-	
-	public class NewWindow implements ActionListener{
-		public void actionPerformed(ActionEvent e){
-			TestFrame tf = new TestFrame(stopWatch,x,y);
+
+	public class NewWindow implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			TestFrame tf = new TestFrame(stopWatch, x, y);
 			tf.setVisible(true);
-			if(x>=1200){
-				x=0;
-				y+=150;
+			if (x >= 1200) {
+				x = 0;
+				y += 150;
 			}
-			x+=300;
-			
-			
-			
+			x += 300;
+
 		}
 	}
 

@@ -1,9 +1,7 @@
 package kapitel8.aufgabe2;
 
 import java.util.Observable;
-
 import javax.swing.Timer;
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.DecimalFormat;
@@ -26,7 +24,9 @@ public class StopWatch extends Observable implements ActionListener {
 	}
 
 	public void reset() {
+		setChanged();
 		seconds = 0.0;
+		notifyObservers();
 	}
 
 	public void stop() {
