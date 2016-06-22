@@ -11,7 +11,7 @@ import javax.swing.*;
 
 public class TaschenrechnerView extends JFrame {
 	private TextField iO;
-	private InputButtons iP;
+	private ButtonPanel iP;
 
 	private Taschenrechner tr;
 
@@ -31,7 +31,7 @@ public class TaschenrechnerView extends JFrame {
 
 		tr = new Taschenrechner();
 		iO = new TextField();
-		iP = new InputButtons(tr);
+		iP = new ButtonPanel(tr);
 
 		iO.setEditable(false);
 

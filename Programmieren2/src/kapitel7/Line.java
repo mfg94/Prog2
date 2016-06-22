@@ -9,6 +9,7 @@ public class Line extends GraphicPrimitive {
 
 	public Line(int x, int y, Color c) {
 		super(x, y, 0, 0, c);
+		
 
 	}
 
@@ -21,6 +22,7 @@ public class Line extends GraphicPrimitive {
 
 	public void setX2(int x2) {
 		this.x2 = x2;
+		
 
 	}
 
