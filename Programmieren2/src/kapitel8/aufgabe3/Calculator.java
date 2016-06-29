@@ -23,8 +23,9 @@ public class Calculator {
 
 	private double result; // 2. operand
 	private double operand; // 1. operand
-	private int opnb; // anzahl der gültigen Operanden
+	public int opnb; // anzahl der gültigen Operanden
 	private OpCode opcode; // aktuell eingestellte Operation
+	public String opc = "";
 
 	/**
 	 * Konstruktor: Defaultmässig führt der Taschenrechner die Operation + durch
@@ -61,6 +62,24 @@ public class Calculator {
 		}
 		this.operand = operand;
 
+		switch (opcode) {
+
+		case PLUS:
+			opc = "+";
+			break;
+		case MINUS:
+			opc = "-";
+			break;
+		case DIV:
+			opc = "/";
+			break;
+		case MULT:
+			opc = "*";
+			break;
+		case NO_OPERATOR:
+			opc = "";
+			break;
+		}
 	}
 
 	/**
@@ -79,6 +98,10 @@ public class Calculator {
 	 */
 	public double getOperand() {
 		return operand;
+	}
+
+	public String getOpc() {
+		return opc;
 	}
 
 	/**
@@ -136,7 +159,7 @@ public class Calculator {
 	 * * @return Taschenrechner Instanzvariablen als String
 	 */
 	public String toString() {
-		String opc = "";
+
 		switch (opcode) {
 
 		case PLUS:
@@ -156,7 +179,6 @@ public class Calculator {
 			break;
 
 		}
-		
 
 		return "" + opnb + ": " + operand + " " + opc + " " + result;
 	}

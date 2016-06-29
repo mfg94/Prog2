@@ -11,20 +11,18 @@ import javax.swing.JTextField;
 
 public class NumberButton extends JButton {
 
-	double number;
+	String number;
 	Calculator tr;
-	static final DecimalFormat df = new DecimalFormat("#0");
+	// static final DecimalFormat df = new DecimalFormat("#0");
 
-	public NumberButton(double number, Calculator tr, JTextField iO) {
-		super(df.format(number));
+	public NumberButton(String number, Calculator tr, JTextField iO) {
+		super(number);
 		this.number = number;
 		setFocusPainted(false);
 		setFocusable(false);
 
 		ActionListener aL = e -> {
-			tr.setOperand(number);
-			iO.setText(tr.toString());
-
+			iO.setText(iO.getText() + number);
 		};
 		addActionListener(aL);
 

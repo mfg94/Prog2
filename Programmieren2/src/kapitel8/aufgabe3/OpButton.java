@@ -31,7 +31,7 @@ public class OpButton extends JButton {
 			op = '*';
 			break;
 		case NO_OPERATOR:
-			op = ' ';
+			op = '=';
 			break;
 
 		}
@@ -39,8 +39,24 @@ public class OpButton extends JButton {
 		setText(Character.toString(op));
 
 		ActionListener aL = e -> {
-			tr.setOpcode(opc);
-			iO.setText(tr.toString());
+			if (iO.getText().contains("+") || iO.getText().contains("-") || iO.getText().contains("*")
+					|| iO.getText().contains("/")) {
+
+				tr.setOperand(Double.parseDouble(iO.getText().substring(iO.getText().indexOf(" ") + 2)));
+				tr.calculate();
+				tr.setOpcode(opc);
+
+				if (op == '=') {
+					iO.setText(Double.toString(tr.getResult()));
+				} else {
+					iO.setText(Double.toString(tr.getResult()) + " " + op + " ");
+				}
+
+			} else {
+				tr.setOperand(Double.parseDouble(iO.getText()));
+				tr.setOpcode(opc);
+				iO.setText(iO.getText() + " " + op + " ");
+			}
 
 		};
 		setFocusable(false);
